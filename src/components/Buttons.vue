@@ -44,10 +44,6 @@
 <script>
     export default {
         name: 'HelloWorld',
-        props: {
-            msg: String,
-
-        },
         methods:{
             saveMessage: function () {
                 console.log('saveMessage', this.message);
