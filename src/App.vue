@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <!--    <img alt="Vue logo" src="./assets/logo.png">-->
+<!--            <img alt="Vue logo" src="./assets/logo.png">-->
         <HelloWorld :msg="count"/>
         <Buttons
                 @add="handlerAdd"
@@ -9,6 +9,14 @@
                 @input-msg="handlerMsg"
         />
         <br>
+<!--        <div class="hello" style="float: left">-->
+<!--        <FotoCard v-for="item in data"-->
+<!--                  :key="item.id"-->
+<!--                  :albumId="item.albumId"-->
+<!--                  :url="item.url"-->
+<!--                  :title="item.title"-->
+<!--        ></FotoCard>-->
+<!--        </div>-->
 <!--        <MyFetch v-for="user of users"-->
 <!--                 :key="user.id"-->
 <!--                 :name="user.name"-->
@@ -20,6 +28,7 @@
 <script>
     import HelloWorld from './components/HelloWorld.vue'
     import Buttons from './components/Buttons.vue'
+  //  import FotoCard from './components/FotoCard.vue'
  //   import MyFetch from './components/MyFetch.vue'
 
     export default {
@@ -27,7 +36,7 @@
         data: function () {
             return {
                 count: 0,
-                users: []
+                data: []
             }
         },
         methods: {
@@ -46,17 +55,22 @@
                 }
             },
             handlerMsg: function (msg) {
-                if (typeof (msg) === 'number') {
-                    this.count += +msg
-                }
+              console.log('handlerMsg' ,+msg);
+              if ((this.count + +msg) >= 0)
+              {
+                this.count += +msg
+              }
+
             }
         },
         mounted: function () {
-            fetch('https://jsonplaceholder.typicode.com/users')
+           // fetch('https://jsonplaceholder.typicode.com/users')
+            fetch('https://jsonplaceholder.typicode.com/photos')
                 .then(value => value.json())
-                .then(value => this.users = value)
+                .then(value => this.data = value)
         },
         components: {
+         // FotoCard,
             HelloWorld,
             Buttons
         }
@@ -64,12 +78,12 @@
 </script>
 
 <style>
-    /*#app {*/
-    /*  font-family: Avenir, Helvetica, Arial, sans-serif;*/
-    /*  -webkit-font-smoothing: antialiased;*/
-    /*  -moz-osx-font-smoothing: grayscale;*/
-    /*  text-align: center;*/
-    /*  color: #2c3e50;*/
-    /*  margin-top: 60px;*/
-    /*}*/
+    #app {
+      font-family: Avenir, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 60px;
+    }
 </style>
