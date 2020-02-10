@@ -9,18 +9,18 @@
                 @input-msg="handlerMsg"
         />
         <br>
-        <MyFetch v-for="user of users"
-                 :key="user.id"
-                 :name="user.name"
-                 :username="user.username"
-                 :email="user.email"></MyFetch>
+<!--        <MyFetch v-for="user of users"-->
+<!--                 :key="user.id"-->
+<!--                 :name="user.name"-->
+<!--                 :username="user.username"-->
+<!--                 :email="user.email"></MyFetch>-->
     </div>
 </template>
 
 <script>
     import HelloWorld from './components/HelloWorld.vue'
     import Buttons from './components/Buttons.vue'
-    import MyFetch from './components/MyFetch.vue'
+ //   import MyFetch from './components/MyFetch.vue'
 
     export default {
         name: 'App',
@@ -46,7 +46,7 @@
                 }
             },
             handlerMsg: function (msg) {
-                if (typeof (+msg) === 'number') {
+                if (typeof (msg) === 'number') {
                     this.count += +msg
                 }
             }
@@ -58,8 +58,7 @@
         },
         components: {
             HelloWorld,
-            Buttons,
-            MyFetch
+            Buttons
         }
     }
 </script>
