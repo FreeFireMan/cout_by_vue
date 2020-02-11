@@ -1,5 +1,4 @@
 <template>
-    <div class="hello">
         <div class="card" style="width: 18rem;">
             <img src=".././assets/logo.png" class="card-img-top" alt="Vue logo">
             <div class="card-body">
@@ -8,7 +7,6 @@
                 <!--        <a href="#" class="btn btn-primary">Go somewhere</a>-->
             </div>
         </div>
-    </div>
 </template>
 
 <script>
